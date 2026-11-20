@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Four players. One bus. Zero professionalism. A chaotic 1–4 player co-op bus comedy from Wild Current Studio.">
+  <meta name="theme-color" content="#233F54">
+  <title>Driver! Pull Over! — Wild Current Studio</title>
+  <link rel="icon" href="./assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-t="skip">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="home-link" href="#main">
+        <img src="./assets/favicon.png" width="32" height="32" alt="">
+        <span data-t="title">Driver! Pull Over!</span>
+      </a>
+      <nav class="site-nav" id="site-nav" data-label="navigation" aria-label="Main navigation">
+        <a href="#experience" data-t="experience">Experience</a>
+        <a href="#gameplay" data-t="gameplay">Gameplay</a>
+        <a href="#media" data-t="media">Media</a>
+        <a href="#about" data-t="about">About</a>
+        <a href="#contact" data-t="contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <div class="language" role="group" aria-label="Language" data-label="language">
+          <button type="button" data-language="en" lang="en" aria-pressed="true">EN</button>
+          <span aria-hidden="true">/</span>
+          <button type="button" data-language="zh" lang="zh-CN" aria-pressed="false">中文</button>
+        </div>
+        <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" data-label="menu" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="game-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="status"><span data-t="development">In development</span></p>
+          <h1 id="game-title">
+            <span class="visually-hidden" data-t="title">Driver! Pull Over!</span>
+            <img class="wordmark" src="./assets/wordmark-en.webp" width="1035" height="521" alt="" fetchpriority="high">
+          </h1>
+          <div class="hero-description">
+            <p class="tagline" data-t="tagline">Four players. One bus. Zero professionalism.</p>
+            <p class="hero-summary" data-t="summary">A chaotic 1–4 player co-op comedy about running a bus service—and ruining it together.</p>
+            <div class="hero-actions">
+              <a class="button button-orange" href="#experience" data-t="watch">Watch gameplay</a>
+              <span class="platform" data-t="platform">Windows PC · Steam</span>
+            </div>
+          </div>
+        </div>
+
+        <figure class="hero-figure">
+          <div class="hero-art" aria-hidden="true">
+            <div class="comic-back">
+              <div class="street-mask"><div class="art-layer art-street"></div></div>
+            </div>
+            <div class="graphic-burst"></div>
+            <div class="art-layer art-bus"></div>
+            <div class="art-layer art-debris"></div>
+            <div class="hero-compact"></div>
+          </div>
+          <figcaption data-t="artCredit">Promotional render · Cricket Town</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="experience" id="experience" aria-labelledby="experience-title">
+      <div class="reel-masthead">
+        <div class="content-width">
+          <h2 id="experience-title" data-t="experience">Experience</h2>
+          <p data-t="experienceIntro">Depart as scheduled. On arrival, account for all passengers, crew, and remaining bodywork.</p>
+        </div>
+      </div>
+
+      <div class="reel-grid content-width">
+        <article class="reel-panel reel-lead" id="rival-bus" aria-labelledby="rival-title">
+          <figure>
+            <div class="reel-player">
+              <video controls playsinline preload="none" width="1280" height="720"
+                aria-labelledby="rival-title" poster="./assets/rival-bus-poster.webp?v=2" src="./assets/rival-bus.mp4?v=2"></video>
+              <button class="button button-orange reel-play" type="button" data-t="playVideo" aria-describedby="rival-title" hidden>Play video</button>
+            </div>
+            <figcaption>
+              <div>
+                <h3 id="rival-title" data-t="rivalVideo">Rival Bus Attack</h3>
+                <p data-t="rivalVideoText">Stray Dog Town · The competition pulls alongside. Both companies come away with fewer panels.</p>
+              </div>
+              <a class="reel-download" href="./assets/rival-bus.mp4?v=2" download data-t="downloadVideo" aria-describedby="rival-title">Download MP4</a>
+            </figcaption>
+          </figure>
+        </article>
+        <article class="reel-panel" id="traffic" aria-labelledby="traffic-title">
+          <figure>
+            <div class="reel-player">
+              <video controls playsinline preload="none" width="1280" height="720"
+                aria-labelledby="traffic-title" poster="./assets/traffic-chaos-poster.webp?v=2" src="./assets/traffic-chaos.mp4?v=2"></video>
+              <button class="button button-orange reel-play" type="button" data-t="playVideo" aria-describedby="traffic-title" hidden>Play video</button>
+            </div>
+            <figcaption>
+              <div>
+                <h3 id="traffic-title" data-t="trafficVideo">Traffic Chaos</h3>
+                <p data-t="trafficVideoText">Ant Town · One driver hits the brakes. The whole street makes it a group project.</p>
+              </div>
+              <a class="reel-download" href="./assets/traffic-chaos.mp4?v=2" download data-t="downloadVideo" aria-describedby="traffic-title">Download MP4</a>
+            </figcaption>
+          </figure>
+        </article>
+        <article class="reel-panel" id="bus-drift" aria-labelledby="drift-title">
+          <figure>
+            <div class="reel-player">
+              <video controls playsinline preload="none" width="1280" height="720"
+                aria-labelledby="drift-title" poster="./assets/bus-drift-poster.webp" src="./assets/bus-drift.mp4"></video>
+              <button class="button button-orange reel-play" type="button" data-t="playVideo" aria-describedby="drift-title" hidden>Play video</button>
+            </div>
+            <figcaption>
+              <div>
+                <h3 id="drift-title" data-t="driftVideo">Handbrake Drift</h3>
+                <p data-t="driftVideoText">Cricket Town · The manual says the whole bus has to make the turn. Sideways counts.</p>
+              </div>
+              <a class="reel-download" href="./assets/bus-drift.mp4" download data-t="downloadVideo" aria-describedby="drift-title">Download MP4</a>
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section class="gameplay" id="gameplay" aria-labelledby="footage-title">
+      <div class="spotlight content-width">
+        <div class="spotlight-heading reveal">
+          <p class="context-label" data-t="gameplayClip">Gameplay footage</p>
+          <h2 id="footage-title" data-t="footageTitle">A shift in<br>Cricket Town.</h2>
+          <p data-t="footageText">There’s a route to run and a schedule to keep. The crew has other plans.</p>
+        </div>
+        <figure class="spotlight-frame reveal">
+          <div class="footage" data-clip="./assets/cricket-preview.mp4">
+            <img src="./assets/stop.webp" width="1600" height="900" loading="lazy" decoding="async"
+              alt="A green and cream bus pulled up at a stop on Cricket Town’s main road." data-alt="stopAlt">
+            <video muted playsinline loop preload="none" aria-label="A short in-game clip from Cricket Town" data-label="clipLabel"></video>
+            <button class="clip-toggle" type="button" data-t="playClip" hidden>Play clip</button>
+          </div>
+          <figcaption data-t="footageCaption">Captured in-game in Cricket Town</figcaption>
+        </figure>
+      </div>
+
+      <article class="feature feature-drive" aria-labelledby="drive-title">
+        <div class="feature-inner content-width">
+          <div class="feature-copy reveal">
+            <h2 id="drive-title" data-t="drive">Drive</h2>
+            <p data-t="driveText">Take the wheel. Run your route, pull into stops and try to keep a whole bus out of trouble in city traffic.</p>
+          </div>
+          <figure class="feature-image reveal">
+            <img src="./assets/drive.webp" width="1600" height="900" loading="lazy" decoding="async"
+              data-alt="driveAlt" alt="The old city bus drives down a street past the buildings in Cricket Town.">
+          </figure>
+        </div>
+      </article>
+
+      <article class="feature feature-survive" aria-labelledby="survive-title">
+        <div class="feature-inner content-width">
+          <div class="feature-copy reveal">
+            <h2 id="survive-title" data-t="survive">Events</h2>
+            <p data-t="surviveText">Sell the tickets, handle the complaints and deal with whatever just happened in the aisle. Your coworkers might even help.</p>
+          </div>
+          <figure class="feature-image reveal">
+            <img src="./assets/survive.webp" width="1600" height="900" loading="lazy" decoding="async"
+              data-alt="surviveAlt" alt="Grandma swings her cane in the aisle as two crew members reel.">
+          </figure>
+        </div>
+      </article>
+
+      <article class="feature feature-chaos" aria-labelledby="chaos-title">
+        <div class="feature-inner content-width">
+          <div class="feature-copy reveal">
+            <h2 id="chaos-title" data-t="chaos">Chaos</h2>
+            <p data-t="chaosText">One bad move can send people, props and pieces of the bus flying. The next problem is usually one you made yourselves.</p>
+          </div>
+          <figure class="feature-image reveal">
+            <img src="./assets/chaos.webp" width="1600" height="900" loading="lazy" decoding="async"
+              data-alt="chaosAlt" alt="Window frames and body panels fly across Cricket Town’s main road as the bus breaks apart.">
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <section class="media content-width" id="media" aria-labelledby="media-title">
+      <div class="section-heading reveal">
+        <h2 id="media-title" data-t="media">Media</h2>
+        <p data-t="galleryIntro">Screenshots from Cricket Town. Select any image to see it full size.</p>
+      </div>
+      <div class="gallery">
+        <a class="gallery-photo reveal" href="./assets/dashboard.webp" data-gallery="photoDashboard">
+          <img src="./assets/dashboard-small.webp" width="800" height="450" loading="lazy" decoding="async" alt="">
+          <span data-t="photoDashboard">From the driver’s seat</span>
+        </a>
+        <a class="gallery-photo reveal" href="./assets/cricket-town.webp" data-gallery="photoTown">
+          <img src="./assets/cricket-town-small.webp" width="800" height="450" loading="lazy" decoding="async" alt="">
+          <span data-t="photoTown">Cricket Town’s main road</span>
+        </a>
+        <a class="gallery-photo reveal" href="./assets/survive.webp" data-gallery="photoSurvive">
+          <img src="./assets/survive-small.webp" width="800" height="450" loading="lazy" decoding="async" alt="">
+          <span data-t="photoSurvive">Trouble in the aisle</span>
+        </a>
+        <a class="gallery-photo reveal" href="./assets/chaos.webp" data-gallery="photoChaos">
+          <img src="./assets/chaos-small.webp" width="800" height="450" loading="lazy" decoding="async" alt="">
+          <span data-t="photoChaos">Parts sold separately</span>
+        </a>
+        <a class="gallery-photo reveal" href="./assets/coop.webp" data-gallery="photoCoop">
+          <img src="./assets/coop-small.webp" width="800" height="450" loading="lazy" decoding="async" alt="">
+          <span data-t="photoCoop">Two on the same shift</span>
+        </a>
+        <a class="gallery-photo reveal" href="./assets/stop.webp" data-gallery="photoStop">
+          <img src="./assets/stop-small.webp" width="800" height="450" loading="lazy" decoding="async" alt="">
+          <span data-t="photoStop">Pulling in at the stop</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="about-inner content-width">
+        <div class="about-game reveal">
+          <p class="context-label">Off-Leash Transit</p>
+          <h2 id="about-title" data-t="aboutTitle">A very normal<br>bus company.</h2>
+          <p data-t="aboutGame">Run a bus service with up to four players. Keep your passengers happy, your bus intact, and your coworkers under control. Good luck.</p>
+          <p class="release-note"><strong data-t="development">In development</strong><span data-t="planned">Windows PC · Planned Steam release</span></p>
+        </div>
+        <div class="about-studio reveal">
+          <h3>Wild Current Studio</h3>
+          <p data-t="studio">A two-person indie team building chaotic multiplayer experiences.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact content-width" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" data-t="contact">Contact</h2>
+      <div>
+        <p class="context-label" data-t="business">Business inquiries</p>
+        <a class="contact-placeholder" href="mailto:wildcurrentgame@gmail.com">wildcurrentgame@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="content-width">
+      <span>© Wild Current Studio</span>
+      <a href="#main" data-t="backTop">Back to top</a>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" aria-labelledby="lightbox-caption">
+    <button class="lightbox-close" type="button" data-label="closeImage" aria-label="Close image"><span aria-hidden="true">×</span></button>
+    <figure>
+      <img alt="">
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+  </dialog>
+</body>
+</html>
