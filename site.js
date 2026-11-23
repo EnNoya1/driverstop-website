@@ -326,3 +326,63 @@ if (reelVideos.length) {
     if (document.hidden) for (const reel of reelVideos) reel.pause();
   });
 }
+
+// Anonymous foreground time milestones for this homepage only.
+(() => {
+  const { hostname, pathname } = window.location;
+  if (hostname !== "ennoya1.github.io" ||
+      !["/driverstop-website/", "/driverstop-website/index.html"].includes(pathname) ||
+      [navigator.doNotTrack, window.doNotTrack, navigator.msDoNotTrack]
+        .some(value => value === "1" || value === "yes")) return;
+
+  const milestones = [10, 30, 60];
+  let next = 0;
+  let elapsed = 0;
+  let since = null;
+  let timer;
+  let suspended = false;
+
+  function record(total) {
+    while (next < milestones.length && total >= milestones[next] * 1000) {
+      const name = "homepage_visible_" + milestones[next++] + "s";
+      try {
+        const analytics = window.umami;
+        if (analytics && typeof analytics.track === "function") {
+          Promise.resolve(analytics.track(name)).catch(() => {});
+        }
+      } catch {
+        // Analytics must not interfere with the homepage.
+      }
+    }
+  }
+
+  function update() {
+    window.clearTimeout(timer);
+    const now = performance.now();
+    if (suspended || document.visibilityState !== "visible") {
+      if (since !== null) {
+        elapsed += now - since;
+        since = null;
+        record(elapsed);
+      }
+      return;
+    }
+    if (since === null) since = now;
+    const total = elapsed + now - since;
+    record(total);
+    if (next < milestones.length) {
+      timer = window.setTimeout(update, Math.ceil(milestones[next] * 1000 - total));
+    }
+  }
+
+  document.addEventListener("visibilitychange", update);
+  window.addEventListener("pagehide", () => {
+    suspended = true;
+    update();
+  });
+  window.addEventListener("pageshow", () => {
+    suspended = false;
+    update();
+  });
+  update();
+})();
