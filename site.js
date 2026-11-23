@@ -386,3 +386,46 @@ if (reelVideos.length) {
   });
   update();
 })();
+
+// Anonymous interactions with the three manually played gameplay reels only.
+(() => {
+  const { hostname, pathname } = window.location;
+  if (hostname !== "ennoya1.github.io" ||
+      !["/driverstop-website/", "/driverstop-website/index.html"].includes(pathname) ||
+      [navigator.doNotTrack, window.doNotTrack, navigator.msDoNotTrack]
+        .some(value => value === "1" || value === "yes")) return;
+
+  function record(name) {
+    try {
+      const analytics = window.umami;
+      if (analytics && typeof analytics.track === "function") {
+        Promise.resolve(analytics.track(name)).catch(() => {});
+      }
+    } catch {
+      // Analytics must not interfere with playback or downloads.
+    }
+  }
+
+  for (const [id, key] of [
+    ["rival-bus", "rival_bus"], ["traffic", "traffic"], ["bus-drift", "bus_drift"],
+  ]) {
+    const panel = document.getElementById(id);
+    if (!panel) continue;
+    const reel = panel.querySelector("video");
+    if (reel && !reel.autoplay) {
+      let started = false;
+      reel.addEventListener("playing", (event) => {
+        if (!event.isTrusted || started || reel.paused) return;
+        started = true;
+        record("gameplay_play_" + key);
+      });
+      const reset = () => { started = false; };
+      reel.addEventListener("pause", reset);
+      reel.addEventListener("ended", reset);
+      reel.addEventListener("emptied", reset);
+    }
+    panel.querySelector("a.reel-download[download]")?.addEventListener("click", (event) => {
+      if (event.isTrusted) record("gameplay_download_click_" + key);
+    });
+  }
+})();
