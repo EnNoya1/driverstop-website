@@ -375,6 +375,26 @@ if (reelVideos.length) {
     }
   }
 
+  // Record one noticeable downward scroll per page load, without coordinates.
+  const scrollStart = window.scrollY;
+  let scrollRecorded = false;
+  function recordScroll(event) {
+    if (scrollRecorded || suspended || !event.isTrusted ||
+        document.visibilityState !== "visible" ||
+        window.scrollY - scrollStart < window.innerHeight / 2) return;
+
+    try {
+      const analytics = window.umami;
+      if (!analytics || typeof analytics.track !== "function") return;
+      scrollRecorded = true;
+      window.removeEventListener("scroll", recordScroll);
+      Promise.resolve(analytics.track("homepage_scroll_half_screen")).catch(() => {});
+    } catch {
+      // Analytics must not interfere with the homepage.
+    }
+  }
+  window.addEventListener("scroll", recordScroll, { passive: true });
+
   document.addEventListener("visibilitychange", update);
   window.addEventListener("pagehide", () => {
     suspended = true;
